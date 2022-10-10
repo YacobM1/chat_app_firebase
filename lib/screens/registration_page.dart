@@ -21,7 +21,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       final imageTemporary = File(image.path);
 
       setState(() {
-        this.imageAvt = imageTemporary;
+        imageAvt = imageTemporary;
       });
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -49,13 +49,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     decoration: BoxDecoration(
                       color: Colors.grey,
                       image: DecorationImage(
-                        image: imageAvt != null
-                            ? Image.file(imageAvt!,
-                                width: 150,
-                                height: 150,
-                                fit: BoxFit.cover) as ImageProvider
-                            : const NetworkImage(
-                                'https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg'),
+                        image:
+                        imageAvt != null
+                            ? FileImage(imageAvt!.absolute, scale: 0.5)
+                            :  const NetworkImage(
+                                'https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg') as ImageProvider,
                       ),
                       borderRadius: BorderRadius.circular(25),
                     ),
@@ -121,3 +119,5 @@ class _RegistrationPageState extends State<RegistrationPage> {
     );
   }
 }
+
+
