@@ -1,7 +1,10 @@
 import 'package:firebase_chat/screens/registration_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+
+Future<void> main() async {
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
